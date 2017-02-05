@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Evan.cshtml";
+    ViewBag.Title = "Welcome";
+}
+
+<h2>Welcome</h2>
+<h3>I have @ViewBag.Friends.Length friends!</h3>
+<ul>
+    @foreach (var item in ViewBag.Friends)
+    {
+        <li>My favorite friend is @item.</li>
+    }
+</ul>
+<p>
+    Consider emailing MooreL@outlook.com or <br />
+    tweet to @@Moore
+</p>
+
+@{ 
+    bool showMessage = true;
+    string msg = "Hello World";
+    if (showMessage)
+    {
+        <p>@msg</p>
+    }
+}
+
+@*@section Footer
+    {
+    <strong>This is the Welcome Page Footer</strong>
+    }*@
