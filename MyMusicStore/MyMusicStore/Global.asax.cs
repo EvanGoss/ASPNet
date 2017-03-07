@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Data.Entity;
+using MyMusicStore.Models;
 
 namespace MyMusicStore
 {
@@ -12,6 +14,8 @@ namespace MyMusicStore
     {
         protected void Application_Start()
         {
+            Database.SetInitializer(new DBInitializer());
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
