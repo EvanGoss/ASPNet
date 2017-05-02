@@ -15,10 +15,10 @@ namespace MyMusicStore.Controllers
         private Album_DBContext db = new Album_DBContext();
 
         // GET: Albums
-        public ActionResult Index()
+        public ActionResult Search(string q)
         {
-            var albums = db.Albums.Include(a => a.Artist).Include(a => a.Genre);
-            return View(albums.ToList());
+            var albums = db.Albums.Include("Artist").Where(a => a.Title.Contains(q)).Take(10);
+            return View(albums);
         }
 
         // GET: Albums/Details/5
